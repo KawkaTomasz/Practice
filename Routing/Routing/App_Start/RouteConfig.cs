@@ -13,6 +13,15 @@ namespace Routing
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            // enable mvc attributes
+            routes.MapMvcAttributeRoutes();
+
+            routes.MapRoute(
+                name: "Loops",
+                url: "Loops/{type}-{iterations}",
+                defaults: new { Controller = "Loop", Action = "Forloop", id = 5 }
+                );
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
